@@ -6,8 +6,9 @@ function iteration(i){
 
 function each(arr,cb){
     for(let i in arr){
-       return cb(arr[i]);
+      console.log(cb(arr[i]));
     }
 }
-console.log(each(items,iteration));
+each(items,iteration);
+// console.log(each(items,iteration));
 // console.log(iteration(5));
