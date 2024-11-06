@@ -22,7 +22,7 @@ function each(elements, cb) {
     // You should also pass the index into `cb` as the second argument
     // based off http://underscorejs.org/#each
     
-}
+}  
 function map(elements, cb) {
     // Do NOT use .map, to complete this function.
     // How map works: Map calls a provided callback function once for each element in an array, in order, and functionructs a new array from the res .

@@ -1,31 +1,28 @@
-// const items = [1, 2, 3, 4, 5, 5];
-// function match(p, s) {
-//     return p === s;
-// }
-// function finder(arr, cb) {
-//     for (let i = 0; i < arr.length - 1; i++) {
-//         if (!cb(arr[i], arr[i + 1])) {
-//             return 'Undefined';
-//         }
-//     }
-//     return arr[arr.length - 1];
+// function find(elements, cb) {
+//     // Do NOT use .includes, to complete this function.
+//     // Look through each value in `elements` and pass each element to `cb`.
+//     // If `cb` returns `true` then return that element.
+//     // Return `undefined` if no elements pass the truth test.
 // }
 
-// console.log(finder(items, match));
+const items = [1, 2, 2, 4, 4];
 
-const items = [1, 2, 3, 4, 5, 5];
+// console.log(items.find(s => s>2));
 
-function match(p, s) {
-    return p === s; // Simplified return
-}
+function match(p,s){
+    return p === s ;
+};
 
-function finder(arr, cb) {
-    for (let i = 0; i < arr.length - 1; i++) { // Iterate until the second last element
-        if (!cb(arr[i], arr[i + 1])) { // Use the callback and check if false
-            return 'Undefined'; // Return 'Undefined' if not matching
-        }
+function finder(arr,cb){
+   for(let i=0;i< arr.length ; i++){
+    // console.log(cb(arr[i],arr[i+1]));
+    if(cb(arr[i],arr[i+1])===true){
+        console.log(arr[i]);
     }
-    return arr[arr.length - 1]; // Return the last element if all matches
+   }
 }
+finder(items,match);
+// console.log(match(3,3));
 
-console.log(finder(items, match)); // Outputs: 5
+// console.log(finder(items));
+
