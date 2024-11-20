@@ -96,7 +96,7 @@ let finalVal = val.toLowerCase().split('');
 function countation(param,cb){
     return param.forEach((v,i )=> {
     //    console.log(v);
-       if(param.indexOf(v) === i){
+       if(i === param.indexOf(v)){
         console.log(v);
        }
     })
