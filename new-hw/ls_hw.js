@@ -1,20 +1,31 @@
 // const field = document.createElement("input");
 
-function addText(){
-    let textDoc = document.getElementById("text").value;
-    localStorage.setItem('key_text', textDoc);
-    document.getElementById("text").value = "";
+function addText() {
+    let user_name = document.getElementById("inputUserName").value;
+    let pass_key = document.getElementById("exampleInputPassword1").value;
+
+    const user_obj = {
+        uname: user_name,
+        passkey: pass_key
+    }
+    localStorage.setItem('user', JSON.stringify(user_obj));
+    alert('Data saved to local storage!');
 }
 
-function getText(){
-    const username = localStorage.getItem('key_text');
-    document.getElementById("output").value = username;
+function getText() {
+    const user_details = localStorage.getItem('user');
+    const user_data = JSON.parse(user_details);
+    document.getElementById("user_output").innerText = user_data.uname;
+    document.getElementById("pass_output").innerText = user_data.passkey;
 }
 
-function clearText(){
+function clearText() {
+    document.getElementById("user_output").innerText = "";
+    document.getElementById("pass_output").innerText = "";
+}
+function clearStorage() {
     localStorage.clear();
-    document.getElementById("output").value = "";
-    setTimeout(()=>{
-    alert('Local storage has been cleared!');
-    },500);
+    setTimeout(() => {
+        alert('Local storage has been cleared!');
+    }, 500);
 }

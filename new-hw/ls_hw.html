@@ -10,24 +10,57 @@
 </head>
 
 <body>
+    <!-- Form_Card -->
     <div class="card my-4 mx-4">
         <div class="card-body">
-            <!-- <input type="text" id="text"> -->
-            <div class="input-group mb-3">
-                <input type="text" id="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-primary" type="button" id="button-addon2" onclick="addText()">Add</button>
+            <div class="card-header">
+                <h3 class="display-6">My Form</h3>
             </div>
-            <div class="input-group">
-                <input type="text" class="form-control" id="output" aria-label="Recipient's username with two button addons">
-                <button class="btn btn-success" type="button" onclick="getText()">Get</button>
-                <button class="btn btn-warning" type="button" onclick="clearText()">Clear</button>
-              </div>
-            <!-- <button class="btn btn-primary" onclick="addText()">Add</button> -->
-            <!-- <button class="btn btn-secondary" onclick="getText()">Get</button>
-            <button class="btn btn-danger" onclick="clearText()">Clear</button> -->
-            <!-- <p id="output"></p> -->
+            <div class="form" onsubmit="addText()">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="inputUserName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-success" type="button" onclick="getText()" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Show</button>
+                    <button class="btn btn-warning" type="button" onclick="clearStorage()">Clear Storage</button>
+                </form>
+            </div>
         </div>
-      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal-text">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">User Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group">
+                            <li class="list-group-item disabled" aria-disabled="true"><span>Username: </span>
+                                <p id="user_output"></p>
+                            </li>
+                            <li class="list-group-item disabled" aria-disabled="true"><span>Password: </span>
+                                <p id="pass_output"></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-info" type="button" onclick="clearText()">Clear data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./ls_hw.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

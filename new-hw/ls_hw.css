@@ -5,6 +5,9 @@ body{
     justify-content: center;
     align-items: center;
 }
+.card-body .form{
+    margin: 10px 10px;
+}
 .card{
     margin: 0 auto;
     width: 500px;
