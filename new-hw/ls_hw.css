@@ -1,3 +1,11 @@
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .card{
-    width: 50%;
+    margin: 0 auto;
+    width: 500px;
 }
