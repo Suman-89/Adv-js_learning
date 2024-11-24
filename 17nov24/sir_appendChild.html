@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div id="api" class="row"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        async function fetchData() {
+          const url = "https://api.github.com/users";
+
+          try {
+            const response = await fetch(url);
+            const data = await response.json();
+            displayData(data);
+          } catch (error) {
+            console.error("Fetch error:", error);
+          }
+        }
+
+        function displayData(data) {
+          const resultContainer = document.getElementById("api");
+
+          data.forEach((item) => {
+            const colDiv = document.createElement("div");
+            colDiv.className = "col-md-4 mb-4";
+
+            const cardDiv = document.createElement("div");
+            cardDiv.className = "card";
+
+            const cardBody = document.createElement("div");
+            cardBody.className = "card-body text-center";
+
+            const cardTitle = document.createElement("h5");
+            cardTitle.className = "card-title";
+            cardTitle.textContent = item.login;
+
+            const cardLink = document.createElement("a");
+            cardLink.href = `https://github.com/NILL-DATTA`;
+            cardLink.target = "_blank";
+            cardLink.className = "btn btn-primary";
+            cardLink.textContent = "View Profile";
+
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardLink);
+            cardDiv.appendChild(cardBody);
+            colDiv.appendChild(cardDiv);
+            resultContainer.appendChild(colDiv);
+          });
+        }
+
+        fetchData();
+      });
+    </script>
+  </body>
+</html>

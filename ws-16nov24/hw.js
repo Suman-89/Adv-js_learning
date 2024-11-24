@@ -84,22 +84,48 @@ function checkAn(params1, params2, cb) {
 let val = 'sumanau';
 let finalVal = val.toLowerCase().split('');
 // console.log(finalVal);
-
-// function findRepeat(params) {
-//     let newVal;
-//     for (let i in params) {
-//         newVal[i] = (newVal[i] || 0) + 1;
-//     }
-//     return newVal;
-// }
-
-function countation(param,cb){
-    return param.forEach((v,i )=> {
-    //    console.log(v);
-       if(i === param.indexOf(v)){
-        console.log(v);
-       }
-    })
+function findNonRepeat(param){
+    const charCount = param.reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+      }, {});
+    
+     for (let char of param) {
+        if (charCount[char] === 1) {
+          return char; 
+        }
+      }
+    
 }
-countation(finalVal);
-// console.log(countation(finalVal));
+
+// console.log(findNonRepeat(finalVal));
+
+function findDuplicates(arr) {
+    const newArr = [];
+    arr.reduce((acc, curr) => {
+        if (acc[curr] && !newArr.includes(curr)) {
+            newArr.push(curr);
+        }
+        
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+    }, {});
+
+    return newArr;
+}
+// findDuplicates(finalVal);
+// console.log(findDuplicates(finalVal));
+
+let arr1 = ["apple", "mango", "apple", "orange", "mango", "mango"];
+function duplicate(a, b) {
+  if (!a.includes(b)){
+    a.push(b);
+  }
+ 
+  return a;
+}
+
+let c = arr1.reduce(duplicate, []);
+console.log(c);
+
+

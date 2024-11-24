@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myFunction()">Submit</button>
+    <p id="text" style="color: red; font-size: x-large;"></p>
+    <script>
+        function myFunction() {
+            let v = document.createElement("h6");
+            // v.style.color = "blue";
+            let texNote = document.createTextNode("water");
+            // texNote.style.color = "red";
+            v.appendChild(texNote);
+            document.getElementById("text").appendChild(v);
+        }
+    </script>
+</body>
+</html>
