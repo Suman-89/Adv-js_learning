@@ -1,4 +1,4 @@
-//Shallow copy
+ //Shallow copy
 const obj1 = { a: 1, b: { c: 2 } };
 const shallowCopy = Object.assign({}, obj1);
 // shallowCopy.b.c = 5;
