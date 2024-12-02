@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Body sructure -->
+    <div class="row" id="card"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- promise code -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        async function fetchData() {
+          const url = "https://api.github.com/users";
+
+          try {
+            const response = await fetch(url);
+            const data = await response.json();
+            displayData(data);
+          } catch (error) {
+            console.error("Fetch error:", error);
+          }
+        }
+        function displayData(param) {
+          param.map((v, i) => {
+            // 
+          const getData = document.getElementById("card");
+            
+            const colDiv = document.createElement("div");
+            colDiv.className = "col-md-4 mb-4";
+
+            const cardDiv = document.createElement("div");
+            cardDiv.className = "card";
+
+            const cardBody = document.createElement("div");
+            cardBody.className = "card-body text-center";
+
+            const cardTitle = document.createElement("h5");
+            cardTitle.className = "card-title";
+            cardTitle.textContent = v.login;
+
+            const cardLink = document.createElement("a");
+            cardLink.href = "https://github.com/NILL-DATTA";
+            cardLink.target = "_blank";
+            cardLink.className = "btn btn-primary";
+            cardLink.textContent = "View Profile";
+
+            //dom design
+            cardBody.appendChild(cardLink);
+            cardBody.appendChild(cardTitle);
+            cardDiv.appendChild(cardBody);
+            colDiv.appendChild(cardDiv);
+            getData.appendChild(colDiv);
+          });
+        }
+        fetchData();
+      });
+    </script>
+  </body>
+</html>
