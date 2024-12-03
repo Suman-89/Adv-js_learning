@@ -29,20 +29,15 @@ let maxNum = num.reduce((acc,curr)=>{
 // console.log(maxNum);
 
 // problem 5
-let primeNum = num.filter(v =>{
-    let flag = false;
-    if(v < 2 ) {
-        flag = false;
-    }else if(v >= 2){
-        for(let i = 0; i<=v ; i++){
-            if(v%i == 0){
-                flag = true;
-            }
-        }
-    }else{
-        flag = false;
+let primeNum = num.filter(v =>{ 
+    // return v
+    if(v < 2) return false;
+     for(let i = 2 ; i <= Math.sqrt(v) ; i++){
+    //    return v%i > 0;
+        if(v%i === 0){
+            return false;        }
     }
-    if(flag = true) return v;
+    return true;
 })
 console.log(primeNum);
 
