@@ -10,8 +10,22 @@
       crossorigin="anonymous"
     />
     <title>Append Child</title>
+    <style>
+      .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .row{
+        width: 50%;
+        height: 80%;
+      }
+    </style>
   </head>
   <body>
+    <div class="container my-4">
+    <div class="row my-4" id="card"></div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -22,5 +36,60 @@
       integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
       crossorigin="anonymous"
     ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(){
+        async function getData() {
+          const url = "https://api.github.com/users";
+          try {
+            const response = await fetch(url);
+            const data = await response.json();
+            showData(data);
+          } catch (error) {
+            console.log(error);
+          }
+          function showData(params) {
+            const vData = document.getElementById("card");
+
+            params.map(v =>{
+              console.log(v);
+               const col_div = document.createElement("div");
+               col_div.className = "card my-4";
+               col_div.style.width = "18rem";
+               col_div.style.margin = "0 auto";
+               
+
+               const col_img = document.createElement("img");
+               col_img.className = "card-img-top";
+               col_img.src = v.avatar_url;
+
+               const card_body = document.createElement("div");
+               card_body.className = "card-body";
+
+               const col_tag = document.createElement("h5");
+               col_tag.className = "card-title";
+               col_tag.innerText = "Details";
+
+               const col_text = document.createElement("p");
+               col_text.className = "card-text";
+               col_text.innerText = v.gists_url;
+
+               const card_btn = document.createElement("a");
+               card_btn.className = "btn btn-primary";
+               card_btn.innerText = "Click here";
+               card_btn.href = "#";
+
+               card_body.appendChild(col_tag);
+               card_body.appendChild(col_text);
+               card_body.appendChild(card_btn);
+
+               col_div.appendChild(col_img);
+               col_div.appendChild(card_body);
+               vData.appendChild(col_div);
+            })
+          }
+        }
+        getData();
+      })
+    </script>
   </body>
 </html>
