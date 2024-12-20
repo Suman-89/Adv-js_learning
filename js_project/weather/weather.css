@@ -20,4 +20,6 @@ body{
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    width: 50%;
+    /* background: linear-gradient(rgb(255, 191, 0),rgb(145, 255, 0)); */
 }
