@@ -23,3 +23,6 @@ body{
     width: 50%;
     /* background: linear-gradient(rgb(255, 191, 0),rgb(145, 255, 0)); */
 }
+.box #card{
+    border: 2px solid red;
+}
