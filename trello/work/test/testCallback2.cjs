@@ -1,9 +1,9 @@
-const boardInfo = require('../callback1.cjs');
+const callback = require('../callback2.cjs');
 
-boardInfo('mcu453ed',(err,data)=>{
+callback('qwsa221' , (err,data)=>{
     if(err){
         console.log(err);
     }else{
         console.log(data);
     }
-})
+});
