@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debounce Example</title>
+  </head>
+  <body>
+    <h1>Debounce Example</h1>
+    <input type="text" id="myInput" placeholder="Type something..." />
+    <p id="output"></p>
+
+    <script>
+      function debounce(func) {
+        let timer;
+        return function (...args) {
+          console.log(args, "lkj");
+          clearTimeout(timer);
+
+          timer = setTimeout(() => {
+            func.apply(this, args);
+          }, 300);
+        };
+      }
+
+      function handleInputChange(event) {
+        const output = document.getElementById("output");
+        output.textContent = "Typed value: " + event.target.value;
+        console.log("Input value:", event.target.value);
+      }
+
+      const inputElement = document.getElementById("myInput");
+      inputElement.addEventListener("input", debounce(handleInputChange));
+    </script>
+  </body>
+</html>
