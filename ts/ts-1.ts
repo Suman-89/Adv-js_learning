@@ -2,7 +2,7 @@
 
 //Object type
 
-let employee: object;
+let employee: any;
 
 employee = {
     firstName: 'John',
@@ -11,6 +11,6 @@ employee = {
     jobTitle: 'Web Developer'
 };
 
-let fn:object = employee.firstName;
+let fn:string = employee.firstName;
 // console.log(employee);
-console.log();
+console.log(fn);

@@ -7,10 +7,11 @@ function getListItems(id,fetchData){
                 console.log(err);
             }else{
                 const listInfo = (JSON.parse(data));
-                const info = listInfo.filter((listData) =>{
-                    if(listData.id === id){
-                        return data;
-                    }
+                const info = listInfo.filter(ld =>{
+                    console.log(ld); 
+                    // if(listData.id === id){
+                    //     return listData;
+                    // }
                 });
                 fetchData(err,info);
             }
