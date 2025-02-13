@@ -13,13 +13,13 @@ class newClass {
     class child extends newClass{
         constructor(param,c){
             super(param,c);
-            console.log(param,c);
+            // console.log(param,c);
         }
     };
     //super keyword calls the value of parent to the child.
     let newChild = new child(34,56);
     
-    // newChild.met();
+    newChild.met();
 
 
     class suman{
@@ -36,5 +36,5 @@ class newClass {
             // console.log(par);
         }
     }
-    let newUser = new user("Suman");
-    newUser.showName("Suman");
+    // let newUser = new user("Suman");
+    // newUser.showName("Suman");
